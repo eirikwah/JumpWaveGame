@@ -117,7 +117,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 				if(m_IsGrounded)
 				{
-//					m_Rigidbody.AddRelativeForce(Vector3.forward * attackForce, ForceMode.Acceleration);
+					m_Rigidbody.AddRelativeForce(Vector3.forward * attackForce, ForceMode.Acceleration);
 
 //					m_Rigidbody.velocity = m_Rigidbody.velocity + Vector3.forward * attackForce;
 				}
@@ -134,12 +134,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			if (m_IsGrounded && Time.deltaTime > 0)
 			{
-//				Vector3 v = m_Rigidbody.velocity;
-//
-//				v = transform.forward * m_ForwardAmount * runSpeed;
-//				v.y = m_Rigidbody.velocity.y;
-//
-//				m_Rigidbody.velocity = v;
+				Vector3 v = m_Rigidbody.velocity;
+
+				v = transform.forward * m_ForwardAmount * runSpeed;
+				v.y = m_Rigidbody.velocity.y;
+
+				m_Rigidbody.velocity = v;
 
 //				m_Rigidbody.MovePosition(transform.position + Vector3.forward * m_ForwardAmount * runSpeed);
 			}
