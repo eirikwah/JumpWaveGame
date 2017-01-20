@@ -289,6 +289,7 @@ MonoBehaviour:
   CylinderPrefab: {fileID: 4941227087047594, guid: 373ac78fcf876446b9416e29d404e0e5,
     type: 2}
   WaveMaterial: {fileID: 2100000, guid: 6833c97328d73419cbb583951781ce28, type: 2}
+  CylinderDiameter: 1
   NumberOfCylinders: 16
   RadiusToLengthFactor: 0.2
   RadiusExpansionRate: 10
@@ -525,6 +526,7 @@ MonoBehaviour:
   CylinderPrefab: {fileID: 4941227087047594, guid: 373ac78fcf876446b9416e29d404e0e5,
     type: 2}
   WaveMaterial: {fileID: 2100000, guid: 1253e380b7b954c9a91d2b1c03375b8a, type: 2}
+  CylinderDiameter: 3
   NumberOfCylinders: 16
   RadiusToLengthFactor: 0.2
   RadiusExpansionRate: 3
