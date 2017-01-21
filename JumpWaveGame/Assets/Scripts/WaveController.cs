@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using DG.Tweening;
-using System.Runtime.InteropServices;
+using FMODUnity;
 
 public class WaveController : MonoBehaviour {
+    [FMODUnity.EventRef]
+    public string WaveSound = "event:/WaveImpactSound";
+
     public Transform CylinderPrefab; 
     public Material WaveMaterial;
 
@@ -41,31 +44,38 @@ public class WaveController : MonoBehaviour {
             cylinder.parent = this.transform;
 
             // Must also reset transform here, even if the same is done in OnEnable (or the rotation will get wrong):
-            cylinder.localPosition = Vector3.zero;
-            cylinder.localEulerAngles = new Vector3(90, -i * angleDelta, 0);
-            cylinder.localScale = new Vector3(CylinderDiameter, 0, CylinderDiameter);
+            initCylinder(i, cylinder);
 
             cylinders[i] = cylinder;
         }
     }
 
-    public void OnEnable() {
+    private void init() {
         CurrentWaveRadius = 0;
+        numberOfActiveCylinderParts = NumberOfCylinders;
 
+        RuntimeManager.PlayOneShot(WaveSound, Vector3.zero);
+    }
+
+    private void initCylinder(int i, Transform cylinder) {
+        cylinder.localPosition = Vector3.zero;
+        cylinder.localEulerAngles = new Vector3(90, -i * angleDelta, 0);
+        cylinder.localScale = new Vector3(CylinderDiameter, 0, CylinderDiameter);
+        cylinder.gameObject.SetActive(true);
+    }
+
+    public void OnEnable() {
         if (cylinders == null) {
             // This method was called before Start. Do nothing.
             return;
         }
 
-        numberOfActiveCylinderParts = NumberOfCylinders;
+        init();
 
-        // Reset all transforms:
+        // Reset all transforms of the cylinders:
         for (int i = 0; i < NumberOfCylinders; i++) {
             Transform cylinder = cylinders[i];
-            cylinder.localPosition = Vector3.zero;
-            cylinder.localEulerAngles = new Vector3(90, -i * angleDelta, 0);
-            cylinder.localScale = new Vector3(CylinderDiameter, 0, CylinderDiameter);
-            cylinder.gameObject.SetActive(true);
+            initCylinder(i, cylinder);
         }
 	}
 	

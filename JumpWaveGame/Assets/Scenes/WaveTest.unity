@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74487f505fbb41b6a670b4bdbe1019f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WaveSound: event:/WaveImpactSound
   CylinderPrefab: {fileID: 4941227087047594, guid: 373ac78fcf876446b9416e29d404e0e5,
     type: 2}
   WaveMaterial: {fileID: 2100000, guid: 6833c97328d73419cbb583951781ce28, type: 2}
@@ -1423,7 +1424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1048048542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,7 +1453,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1048048541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a25e6e81aa5d247238a0f2225c4ba5a2, type: 3}
   m_Name: 
@@ -1635,7 +1636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1141987823
 Transform:
   m_ObjectHideFlags: 0
