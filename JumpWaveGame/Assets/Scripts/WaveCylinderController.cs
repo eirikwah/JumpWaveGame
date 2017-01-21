@@ -15,9 +15,12 @@ public class WaveCylinderController : MonoBehaviour {
     public void Start() {
         parentWaveController = transform.parent.gameObject.GetComponent<WaveController>();
         Assert.IsNotNull(parentWaveController, "Parent of WaveCylinderController must be WaveController");
-		
+
 		// Layer name is typically "Wave3":
-		waveNumberAsString = LayerMask.LayerToName(transform.parent.gameObject.layer).Substring(4);
+		//		waveNumberAsString = LayerMask.LayerToName(transform.parent.gameObject.layer).Substring(4);
+
+		//Did this so I didn't have to change the layers on the Wave Parents (they are set to default)
+		waveNumberAsString = transform.parent.name.Substring(4); 
     }
 
 	public void OnCollisionEnter(Collision collision)
@@ -38,7 +41,7 @@ public class WaveCylinderController : MonoBehaviour {
 				return;
 			}
 
-//			Debug.Log(waveNumberAsString + "   " + otherLayerName + "  " + otherLayerName.EndsWith(waveNumberAsString));
+			Debug.Log(waveNumberAsString + "   " + otherLayerName + "  " + otherLayerName.EndsWith(waveNumberAsString));
 
 			Vector3 dir = (parentWaveController.transform.position - collision.transform.position).normalized;
 

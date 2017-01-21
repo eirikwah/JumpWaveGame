@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 114496916702679084}
   - component: {fileID: 114497814303010480}
   - component: {fileID: 75387946465138752}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1576,7 +1576,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378341305646734}
   m_LocalRotation: {x: -0, y: -0.00000013411044, z: -0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 0.49, z: 7.33}
+  m_LocalPosition: {x: -17.77, y: 0.49, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4815603994094696}
@@ -4084,6 +4084,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a79a1dc601acc4d9eb826adc8a88ab60, type: 2}
   - {fileID: 2100000, guid: d2273508ca7fc462c9f41d82fef51099, type: 2}
   - {fileID: 2100000, guid: d44bd1b90f0434681adb4ff0c0c198ac, type: 2}
+  KickSound: event:/KickMiss
+  StompSound: event:/KickHit
+  JumpSound: event:/Jump
 --- !u!114 &114497814303010480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4107,8 +4110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d651e48ef9b9e146b07c71206b35023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushbackLengthForce: 6
-  pushbackHeightForce: 1
+  pushbackLengthForce: 8
+  pushbackHeightForce: 2
 --- !u!136 &136809648138695098
 CapsuleCollider:
   m_ObjectHideFlags: 1

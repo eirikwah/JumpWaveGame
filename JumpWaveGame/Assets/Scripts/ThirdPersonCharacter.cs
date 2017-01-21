@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -40,7 +41,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		private bool stompAttack;
 		private bool stompQueued;
+		private bool hasJumped;
 		private bool hasDoubleJumped;
+
+		[FMODUnity.EventRef]
+		public string KickSound = "event:/KickMiss";
+
+		[FMODUnity.EventRef]
+		public string StompSound = "event:/KickHit";
+
+		[FMODUnity.EventRef]
+		public string JumpSound = "event:/Jump";
 
 		void Start()
 		{
@@ -166,13 +177,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
 				isGrounded = false;
 				//				groundCheckDistance = 0.1f;
+				hasJumped = true;
+				RuntimeManager.PlayOneShot(JumpSound, Vector3.zero);
 			}
-			else if(jump && !isGrounded && !hasDoubleJumped && !gameOver)
+			else if(jump && !isGrounded && !hasDoubleJumped && !gameOver )
 			{
 				animator.SetTrigger("DoubleJump");
 				rigidbody.velocity = Vector3.zero;
 				rigidbody.AddRelativeForce(Vector3.up * jumpPower + Vector3.forward * (jumpPower * forwardAmount), ForceMode.VelocityChange);
 				hasDoubleJumped = true;
+
+				RuntimeManager.PlayOneShot(JumpSound, Vector3.zero);
 			}
 		}
 
@@ -187,12 +202,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 					animator.SetTrigger("Attack");
 					attackCollider.SetActive(true);
 					Invoke("StopAttack", 0.2f);
+					RuntimeManager.PlayOneShot(KickSound, Vector3.zero);
 				}
-				else
+				else if(!isGrounded && hasJumped)
 				{
 					stompAttack = true;
 					rigidbody.velocity = Vector3.zero;
 					rigidbody.AddForce(Vector3.down * stompForce, ForceMode.Impulse);
+					RuntimeManager.PlayOneShot(StompSound, Vector3.zero);
 				}
 			}
 		}
@@ -245,6 +262,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				}
 
 				hasDoubleJumped = false;
+				hasJumped = false;
 				isGrounded = true;
 			}
 			else
