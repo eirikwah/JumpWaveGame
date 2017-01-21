@@ -31,6 +31,7 @@ public class WaveController : MonoBehaviour {
         // Reset all positions:
         for (int i = 0; i < NumberOfCylinders; i++) {
             Transform cylinder = Object.Instantiate(CylinderPrefab);
+            cylinder.gameObject.layer = this.gameObject.layer;
             cylinder.gameObject.GetComponent<MeshRenderer>().sharedMaterial = WaveMaterial;
             cylinder.parent = this.transform;
             cylinder.localPosition = Vector3.zero;
