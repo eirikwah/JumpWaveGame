@@ -4029,9 +4029,18 @@ MonoBehaviour:
   runSpeed: 2
   jumpPower: 6
   attackForce: 400
-  stompForce: 10
+  stompForce: 20
   groundCheckDistance: 0.2
   attackCollider: {fileID: 1057926973107634}
+  playerMaterials:
+  - {fileID: 2100000, guid: 208ef5052076e46dda42be2c773daba7, type: 2}
+  - {fileID: 2100000, guid: 0ed0c2e9adfe04c3792a8e000874f5c4, type: 2}
+  - {fileID: 2100000, guid: f94fc2031d005444e9cdc939d5617478, type: 2}
+  - {fileID: 2100000, guid: 9714e1900fbc045d68af25261820c34c, type: 2}
+  - {fileID: 2100000, guid: b7f9388865ad64087b786251a3164f74, type: 2}
+  - {fileID: 2100000, guid: a79a1dc601acc4d9eb826adc8a88ab60, type: 2}
+  - {fileID: 2100000, guid: d2273508ca7fc462c9f41d82fef51099, type: 2}
+  - {fileID: 2100000, guid: d44bd1b90f0434681adb4ff0c0c198ac, type: 2}
 --- !u!114 &114497814303010480
 MonoBehaviour:
   m_ObjectHideFlags: 1

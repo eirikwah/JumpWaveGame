@@ -15,7 +15,6 @@ public class InputManager : MonoBehaviour
 	private void Start ()
 	{
 		thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
-		Debug.Log("Layer name is " + LayerMask.LayerToName(gameObject.layer));
 		layerName = LayerMask.LayerToName(gameObject.layer);
 	}
 

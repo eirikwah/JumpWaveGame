@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -7,16 +8,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	[RequireComponent(typeof(Animator))]
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
-		[SerializeField] private float runSpeed = 1;
-		[SerializeField] float jumpPower = 12f;
+		[SerializeField] 
+		private float runSpeed = 1;
 
-		[SerializeField] private float attackForce = 30;
+		[SerializeField] 
+		float jumpPower = 12f;
 
-		[SerializeField] private float stompForce = 40;
+		[SerializeField] 
+		private float attackForce = 30;
 
-//		[SerializeField] float m_AnimSpeedMultiplier = 1f;
-		[SerializeField] private float groundCheckDistance = 0.1f;
-		[SerializeField] private GameObject attackCollider;
+		[SerializeField] 
+		private float stompForce = 40;
+
+		[SerializeField] 
+		private float groundCheckDistance = 0.1f;
+
+		[SerializeField] 
+		private GameObject attackCollider;
+
+		[SerializeField]
+		private List<Material> playerMaterials;
 
 		private Rigidbody rigidbody;
 		private ConstantForce constantForce;
@@ -30,12 +41,64 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void Start()
 		{
+			ChangeMaterialInChild(transform);
+
 			gameObject.name = LayerMask.LayerToName(gameObject.layer);
 			animator = GetComponent<Animator>();
 			rigidbody = GetComponent<Rigidbody>();
 			constantForce = GetComponent<ConstantForce>();
 			rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		}
+
+		private void ChangeMaterialInChild(Transform t)
+		{
+			foreach(Transform child in t)
+			{
+				MeshRenderer mesh = child.GetComponent<MeshRenderer>();
+				SkinnedMeshRenderer skinMesh = child.GetComponent<SkinnedMeshRenderer>();
+				if(mesh != null)
+				{
+					if(mesh.gameObject.name.Contains("HIGHLIGHT") || mesh.gameObject.name.Contains("SCLERA"))
+					{
+
+					}
+					else
+					{
+						for(int i = 0; i < playerMaterials.Count; i++)
+						{
+							if(playerMaterials[i].name == gameObject.name)
+							{
+									
+
+								Debug.Log(mesh.materials.Length);
+//								mesh.sharedMaterial = playerMaterials[i];
+								mesh.materials[0].color = playerMaterials[i].color;
+								if(mesh.materials.Length == 2)
+								mesh.materials[1].color = playerMaterials[i].color;
+
+							}
+						}
+						
+					}
+				}
+
+				if (skinMesh != null)
+				{
+					for (int i = 0; i < playerMaterials.Count; i++)
+					{
+						if (playerMaterials[i].name == gameObject.name)
+						{
+							skinMesh.materials[0].color = playerMaterials[i].color;
+							if (skinMesh.materials.Length == 2)
+								skinMesh.materials[1].color = playerMaterials[i].color;
+						}
+					}
+				}
+
+				ChangeMaterialInChild(child);
+			}
+		}
+
 
 		private void Update()
 		{
@@ -186,14 +249,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				{
 					if(hitInfo.collider.tag == "Playfield")
 					{
-						Debug.Log("stomp!!!!!!");
+						Debug.Log(gameObject.name + " stomps the ground!");
 					}
 				}
 
-					isGrounded = true;
-
-				
-
+				isGrounded = true;
 			}
 			else
 			{
