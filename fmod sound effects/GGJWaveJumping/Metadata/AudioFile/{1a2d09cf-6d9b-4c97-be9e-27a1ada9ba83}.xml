@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{1a2d09cf-6d9b-4c97-be9e-27a1ada9ba83}">
+        <property name="assetPath">
+            <value>Kick_sound_miss.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.4776417233560091</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{6cbf8293-9fed-45e3-921f-c6051a62b162}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{966a2fb5-0340-4ea8-a1d8-ecf1d537cdda}">
+        <property name="assetPath">
+            <value>HitDeathVictory1.WAV</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>18.376000000000001</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{6cbf8293-9fed-45e3-921f-c6051a62b162}</destination>
+        </relationship>
+    </object>
+</objects>

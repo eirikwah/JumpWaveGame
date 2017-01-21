@@ -10,3 +10,5 @@ JumpWaveGame/obj
 
 # Ignore Visual Code settings
 .vs
+fmod sound effects/GGJWaveJumping/.cache
+fmod sound effects/GGJWaveJumping/.user
