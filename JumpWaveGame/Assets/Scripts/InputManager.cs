@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class InputManager : MonoBehaviour
 {
@@ -21,19 +20,19 @@ public class InputManager : MonoBehaviour
 	{
 		if(!jumpBool)
 		{
-			jumpBool = CrossPlatformInputManager.GetButtonDown("Jump");
+			jumpBool = Input.GetButtonDown("Jump");
 		}
 
 		if(!attackBool)
 		{
-			attackBool = CrossPlatformInputManager.GetButtonDown("Fire1");
+			attackBool = Input.GetButtonDown("Fire1");
 		}
 	}
 
 	// Update is called once per frame
 	private void FixedUpdate () {
-		float h = CrossPlatformInputManager.GetAxis("Horizontal");
-		float v = CrossPlatformInputManager.GetAxis("Vertical");
+		float h = Input.GetAxis("Horizontal");
+		float v = Input.GetAxis("Vertical");
 
 		Vector3 moveVector = v* Vector3.forward + h * Vector3.right;
 
