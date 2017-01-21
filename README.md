@@ -3,7 +3,7 @@ This is a game produced in 48 hours as a part of the [Global Game Jam 2017 - Tro
 
 The group creating this game is (in no particular order):
 
-* Trond
+* Trond Kaarsberg Brechan
 * Simon Tysland
 * Håvard Stene Skjærvik
 * Grete Bakken
