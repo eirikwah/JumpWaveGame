@@ -7,3 +7,6 @@ JumpWaveGame/obj
 # Ignore auto generated files
 *.csproj
 *.sln
+
+# Ignore Visual Code settings
+.vs
