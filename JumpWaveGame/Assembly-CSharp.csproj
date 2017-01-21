@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\CanvasController.cs" />
      <Compile Include="Assets\Scripts\WaveController.cs" />
      <Compile Include="Assets\Scripts\WaveCylinderController.cs" />
+     <Compile Include="Assets\TilePlacer.cs" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
