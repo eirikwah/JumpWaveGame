@@ -46,14 +46,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Assets\InputManager.cs" />
-     <Compile Include="Assets\Assets\Scripts\ObjectRandomMoveTest.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
+     <Compile Include="Assets\Scripts\AttackCollider.cs" />
      <Compile Include="Assets\Scripts\CanvasController.cs" />
+     <Compile Include="Assets\Scripts\GameManagerController.cs" />
+     <Compile Include="Assets\Scripts\InputManager.cs" />
+     <Compile Include="Assets\Scripts\ObjectRandomMoveTest.cs" />
+     <Compile Include="Assets\Scripts\ThirdPersonCharacter.cs" />
+     <Compile Include="Assets\Scripts\TilePlacer.cs" />
      <Compile Include="Assets\Scripts\WaveController.cs" />
      <Compile Include="Assets\Scripts\WaveCylinderController.cs" />
-     <Compile Include="Assets\TilePlacer.cs" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
@@ -63,7 +66,6 @@
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
-     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity 5.5.0p4/Unity 5.5.0p4.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

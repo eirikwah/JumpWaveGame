@@ -56,7 +56,6 @@
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
-     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity 5.5.0p4/Unity 5.5.0p4.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -108,6 +107,15 @@
  <Reference Include="DOTween">
  <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
  <Reference Include="DOTweenEditor">
  <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
@@ -119,15 +127,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity 5.5.0p4/Unity 5.5.0p4.app/Contents/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="DOTween43">
- <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
- </Reference>
- <Reference Include="DOTween46">
- <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
- </Reference>
- <Reference Include="DOTween50">
- <HintPath>/Users/efw/git/JumpWaveGame/JumpWaveGame/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
