@@ -12,3 +12,5 @@ JumpWaveGame/obj
 .vs
 fmod sound effects/GGJWaveJumping/.cache
 fmod sound effects/GGJWaveJumping/.user
+fmod.log
+fmod_editor.log
