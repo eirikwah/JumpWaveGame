@@ -600,36 +600,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114913766874981310, guid: a0f7508c93e9e4009b6a3a1299ba2cc2,
-        type: 2}
-      propertyPath: WaveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 3980393becba54040bc823b4e9c98faf, type: 2}
-    - target: {fileID: 114178783321089110, guid: a0f7508c93e9e4009b6a3a1299ba2cc2,
-        type: 2}
-      propertyPath: WaveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 9535509e9c2954ba5a9a4d3c11a76ef6, type: 2}
-    - target: {fileID: 114536681177903370, guid: a0f7508c93e9e4009b6a3a1299ba2cc2,
-        type: 2}
-      propertyPath: WaveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 40e2842335be44f059bb1d4572e47246, type: 2}
-    - target: {fileID: 114564388139741028, guid: a0f7508c93e9e4009b6a3a1299ba2cc2,
-        type: 2}
-      propertyPath: WaveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: c3e918dbbf4a04c939b4f8b57dda5e14, type: 2}
-    - target: {fileID: 114779105244082934, guid: a0f7508c93e9e4009b6a3a1299ba2cc2,
-        type: 2}
-      propertyPath: WaveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: add9ea32a49fb44a79aedddae3229ef9, type: 2}
-    - target: {fileID: 114834195283001160, guid: a0f7508c93e9e4009b6a3a1299ba2cc2,
-        type: 2}
-      propertyPath: WaveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: b37a785609525444ba379a4b12518e4d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0f7508c93e9e4009b6a3a1299ba2cc2, type: 2}
   m_IsPrefabParent: 0
