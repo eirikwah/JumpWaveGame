@@ -30,5 +30,15 @@ public class ObjectRandomMoveTest : MonoBehaviour
 		{
 			transform.Translate(Vector3.left * speed / 10);
 		}
+
+		
+	}
+
+	void Update()
+	{
+//		if(Input.GetKeyDown(KeyCode.P))
+//		{
+//			GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Impulse);
+//		}
 	}
 }
