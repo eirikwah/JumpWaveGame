@@ -22,7 +22,9 @@ public class TilePlacer : MonoBehaviour
 		{
 			for(int y = 0; y < sizeY; y++)
 			{
-				GameObject thisPrefab = prefab[Random.Range(0, prefab.Count-1)];
+				int i = Random.Range (0, prefab.Count);
+				//Debug.Log (i);
+				GameObject thisPrefab = prefab[i];
 				current = Instantiate (thisPrefab, new Vector3(gameObject.transform.position.x + x * tileOffset, gameObject.transform.position.y, gameObject.transform.position.z + y * tileOffset), thisPrefab.transform.rotation);
 				current.transform.SetParent (transform.root);
 			}
