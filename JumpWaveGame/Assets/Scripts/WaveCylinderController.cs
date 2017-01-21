@@ -10,8 +10,6 @@ public class WaveCylinderController : MonoBehaviour {
     }
 
     public void OnTriggerExit(Collider other) {
-        Debug.Log("OnTriggerExit: " + other.gameObject.name);
-
         if (other.gameObject.CompareTag("PlayfieldEdge")) {
             parentWaveController.OnCylinderLeftPlayfield();
         }

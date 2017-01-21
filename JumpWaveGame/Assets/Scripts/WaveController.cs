@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
+using DG.Tweening;
+using System.Runtime.InteropServices;
 
 public class WaveController : MonoBehaviour {
     public Transform CylinderPrefab; 
@@ -85,9 +87,16 @@ public class WaveController : MonoBehaviour {
 
         if (numberOfActiveCylinderParts <= 0) {
             // Fade out the cylinder:
-            gameObject.SetActive(false);
+            DOTween.To(getRadius, setRadius, CurrentWaveRadius + 20, 1)
+                .OnComplete(() => gameObject.SetActive(false));
         }
     }
 
+    private float getRadius() {
+        return CurrentWaveRadius;
+    }
 
+    private void setRadius(float radius) {
+        CurrentWaveRadius = radius;
+    }
 }
