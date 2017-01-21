@@ -3,3 +3,7 @@ JumpWaveGame/Temp
 JumpWaveGame/Builds
 JumpWaveGame.userprefs
 JumpWaveGame/obj
+
+# Ignore auto generated files
+*.csproj
+*.sln
