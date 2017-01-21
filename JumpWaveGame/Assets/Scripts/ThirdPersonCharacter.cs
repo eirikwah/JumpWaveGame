@@ -14,56 +14,68 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		[SerializeField] private float stompForce = 40;
 
-		[SerializeField] float m_AnimSpeedMultiplier = 1f;
-		[SerializeField] float m_GroundCheckDistance = 0.1f;
+//		[SerializeField] float m_AnimSpeedMultiplier = 1f;
+		[SerializeField] private float groundCheckDistance = 0.1f;
 
-		Rigidbody m_Rigidbody;
-		Animator m_Animator;
-		bool m_IsGrounded;
-		float m_OrigGroundCheckDistance;
-		const float k_Half = 0.5f;
-		float m_TurnAmount;
-		float m_ForwardAmount;
-		Vector3 m_GroundNormal;
-		float m_CapsuleHeight;
-		Vector3 m_CapsuleCenter;
-		CapsuleCollider m_Capsule;
-		bool m_Crouching;
+		private Rigidbody rigidbody;
+		private ConstantForce constantForce;
+		private Animator animator;
+		private bool isGrounded;
+		private float forwardAmount;
+		private Vector3 groundNormal;
 
+		private bool stompAttack;
+		private bool stompQueued;
 
 		void Start()
 		{
-			m_Animator = GetComponent<Animator>();
-			m_Rigidbody = GetComponent<Rigidbody>();
-			m_Capsule = GetComponent<CapsuleCollider>();
-			m_CapsuleHeight = m_Capsule.height;
-			m_CapsuleCenter = m_Capsule.center;
-
-			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+			animator = GetComponent<Animator>();
+			rigidbody = GetComponent<Rigidbody>();
+			constantForce = GetComponent<ConstantForce>();
+			rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		}
 
+		private void Update()
+		{
+			if(stompAttack)
+			{
+				
+			}
+		}
 
 		public void ReceiveInput(Vector3 move, bool attack, bool jump)
 		{
+			if(Input.GetKeyDown(KeyCode.P))
+			{
+				GetComponent<Rigidbody>().AddForce(new Vector3(0, 8, 3), ForceMode.Impulse);
+			}
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 
 			CheckGroundStatus();
 
-			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
+			move = Vector3.ProjectOnPlane(move, groundNormal);
 
-			m_TurnAmount = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
-
-			m_ForwardAmount = move.z;
+			forwardAmount = move.z;
 
 			Rotate(move);
-
+			Vector3 v = rigidbody.velocity;
 			// control and velocity handling is different when grounded and airborne:
-			if (m_IsGrounded)
+			if (isGrounded)
 			{
 				HandleGroundedMovement(jump);
-				OnAnimatorMove();
+				
+				if(forwardAmount > 0.1f)
+				{
+					if(rigidbody.velocity.magnitude < 7)
+					v = rigidbody.velocity + transform.forward * forwardAmount * runSpeed;
+//					rigidbody.velocity += transform.forward*forwardAmount*runSpeed;
+					rigidbody.velocity = v;
+					//					if(rigidbody.velocity.magnitude < runSpeed)
+					//						rigidbody.AddRelativeForce(Vector3.forward * runSpeed, ForceMode.VelocityChange);
+					//						constantForce.relativeForce = move * 1000;
+					//					transform.Translate(Vector3.forward * runSpeed);
+				}
 			}
 			else
 			{
@@ -79,12 +91,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
-			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-			m_Animator.SetBool("OnGround", m_IsGrounded);
+			animator.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
+			animator.SetBool("OnGround", isGrounded);
 
-			if (!m_IsGrounded)
+			if (!isGrounded)
 			{
-				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
+				animator.SetFloat("Jump", rigidbody.velocity.y);
 			}
 		}
 
@@ -92,20 +104,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void HandleAirborneMovement()
 		{
 			// apply extra gravity from multiplier:
-			m_GroundCheckDistance = m_Rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
+//			groundCheckDistance = rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
 		}
 
 
 		void HandleGroundedMovement(bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-			if (jump && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+			if (jump && animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
 			{
 				// jump!
-				m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, jumpPower, m_Rigidbody.velocity.z);
-				m_IsGrounded = false;
-				m_Animator.applyRootMotion = false;
-				m_GroundCheckDistance = 0.1f;
+//				rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpPower, rigidbody.velocity.z);
+				rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
+				isGrounded = false;
+//				groundCheckDistance = 0.1f;
 			}
 		}
 
@@ -113,13 +125,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		{
 			if(attack)
 			{
-				m_Animator.SetTrigger("Attack");
 
-				if(m_IsGrounded)
+				if(isGrounded)
 				{
-					m_Rigidbody.AddRelativeForce(Vector3.forward * attackForce, ForceMode.Acceleration);
+					rigidbody.AddRelativeForce(Vector3.forward * attackForce, ForceMode.Acceleration);
+					animator.SetTrigger("Attack");
+				}
+				else
+				{
 
-//					m_Rigidbody.velocity = m_Rigidbody.velocity + Vector3.forward * attackForce;
+//					if(transform.position.y > 2)
+//					{
+						stompAttack = true;
+						rigidbody.velocity = Vector3.zero;
+						rigidbody.AddForce(Vector3.down * stompForce, ForceMode.Impulse);
+//					}
+					
 				}
 			}
 		}
@@ -132,16 +153,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		public void OnAnimatorMove()
 		{
-			if (m_IsGrounded && Time.deltaTime > 0)
+			if (isGrounded)
 			{
-				Vector3 v = m_Rigidbody.velocity;
-
-				v = transform.forward * m_ForwardAmount * runSpeed;
-				v.y = m_Rigidbody.velocity.y;
-
-				m_Rigidbody.velocity = v;
-
-//				m_Rigidbody.MovePosition(transform.position + Vector3.forward * m_ForwardAmount * runSpeed);
+//				Vector3 v = rigidbody.velocity;
+//
+//				v = transform.forward * forwardAmount * runSpeed;
+//				v.y = rigidbody.velocity.y;
+//
+//				rigidbody.velocity = v;
 			}
 		}
 
@@ -149,24 +168,44 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void CheckGroundStatus()
 		{
 			RaycastHit hitInfo;
-#if UNITY_EDITOR
-			// helper to visualise the ground check ray in the scene view
-			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * m_GroundCheckDistance));
-#endif
-			// 0.1f is a small offset to start the ray from inside the character
-			// it is also good to note that the transform position in the sample assets is at the base of the character
-			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, m_GroundCheckDistance))
+//#if UNITY_EDITOR
+//			// helper to visualise the ground check ray in the scene view
+//			Debug.DrawLine(transform.position + (Vector3.up * 0.1f), transform.position + (Vector3.up * 0.1f) + (Vector3.down * groundCheckDistance));
+//#endif
+//			// 0.1f is a small offset to start the ray from inside the character
+//			// it is also good to note that the transform position in the sample assets is at the base of the character
+			if (Physics.Raycast(transform.position + (Vector3.up * 0.1f), Vector3.down, out hitInfo, groundCheckDistance))
 			{
-				m_GroundNormal = hitInfo.normal;
-				m_IsGrounded = true;
-				m_Animator.applyRootMotion = true;
+				groundNormal = hitInfo.normal;
+
+				if(!isGrounded && stompAttack)
+				{
+					if(hitInfo.collider.tag == "Playfield")
+					{
+						Debug.Log("stomp!!!!!!");
+					}
+				}
+
+					isGrounded = true;
+
+				
+
 			}
 			else
 			{
-				m_IsGrounded = false;
-				m_GroundNormal = Vector3.up;
-				m_Animator.applyRootMotion = false;
+				isGrounded = false;
+				groundNormal = Vector3.up;
 			}
 		}
+
+//		void OnCollisionEnter(Collision col)
+//		{
+//			isGrounded = true;
+//		}
+//
+//		void OnCollisionExit(Collision col)
+//		{
+//			isGrounded = false;
+//		}
 	}
 }
