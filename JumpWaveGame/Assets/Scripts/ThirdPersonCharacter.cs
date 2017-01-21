@@ -30,6 +30,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void Start()
 		{
+			gameObject.name = LayerMask.LayerToName(gameObject.layer);
 			animator = GetComponent<Animator>();
 			rigidbody = GetComponent<Rigidbody>();
 			constantForce = GetComponent<ConstantForce>();

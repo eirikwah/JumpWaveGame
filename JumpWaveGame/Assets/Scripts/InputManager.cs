@@ -21,14 +21,14 @@ public class InputManager : MonoBehaviour
 
 	private void Update()
 	{
-		if(!jumpBool)
+		if(Input.GetButtonDown(layerName + "Jump"))
 		{
-			jumpBool = Input.GetButtonDown(layerName + "Jump");
+			jumpBool = true;
 		}
 
-		if(!attackBool)
+		if(Input.GetButtonDown(layerName + "Fire1"))
 		{
-			attackBool = Input.GetButtonDown(layerName + "Fire1");
+			attackBool = true;
 		}
 	}
 
