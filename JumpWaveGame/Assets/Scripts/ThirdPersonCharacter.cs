@@ -249,7 +249,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				{
 					if(hitInfo.collider.tag == "Playfield")
 					{
-						Debug.Log(gameObject.name + " stomps the ground!");
+						FindObjectOfType<WaveCreator>().CreateWave(transform.position, gameObject.name);
+						stompAttack = false;
 					}
 				}
 
