@@ -82,7 +82,7 @@ public class WaveController : MonoBehaviour {
 
     public void OnCylinderLeftPlayfield()
     {
-        Debug.Log("Child WaveCylinder left playfield.");
+        //Debug.Log("Child WaveCylinder left playfield.");
         numberOfActiveCylinderParts--;
 
         if (numberOfActiveCylinderParts <= 0) {
