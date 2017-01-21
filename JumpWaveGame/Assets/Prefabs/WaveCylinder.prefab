@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136157720588413870}
   - component: {fileID: 23314735148572384}
   - component: {fileID: 54175386744960166}
+  - component: {fileID: 114065916386855726}
   m_Layer: 0
   m_Name: WaveCylinder
   m_TagString: Untagged
@@ -96,6 +97,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114065916386855726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265469389588136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 020bdb551ecc64e76a58be1516106a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136157720588413870
 CapsuleCollider:
   m_ObjectHideFlags: 1

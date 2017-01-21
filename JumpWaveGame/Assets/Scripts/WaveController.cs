@@ -20,28 +20,54 @@ public class WaveController : MonoBehaviour {
     [SerializeField]
     private float radiusToLengthFactor;
 
-	public void Start () {
+    private int numberOfActiveCylinderParts;
+
+	public void Start() {
         Assert.IsNotNull(CylinderPrefab, "CylinderTemplate must be initialized");
+        numberOfActiveCylinderParts = NumberOfCylinders;
         cylinders = new Transform[NumberOfCylinders];
 
         angleDelta = 360.0f / NumberOfCylinders;
 
         radiusToLengthFactor = Mathf.Sin(Mathf.Deg2Rad * angleDelta / 2) / Mathf.Cos(Mathf.Deg2Rad * angleDelta / 2);
 
-        // Reset all positions:
+        // Initialize the cylinders that make the wave shape:
         for (int i = 0; i < NumberOfCylinders; i++) {
             Transform cylinder = Object.Instantiate(CylinderPrefab);
             cylinder.gameObject.layer = this.gameObject.layer;
             cylinder.gameObject.GetComponent<MeshRenderer>().sharedMaterial = WaveMaterial;
             cylinder.parent = this.transform;
+
+            // Must also reset transform here, even if the same is done in OnEnable (or the rotation will get wrong):
             cylinder.localPosition = Vector3.zero;
             cylinder.localEulerAngles = new Vector3(90, -i * angleDelta, 0);
             cylinder.localScale = new Vector3(CylinderDiameter, 0, CylinderDiameter);
+
             cylinders[i] = cylinder;
+        }
+    }
+
+    public void OnEnable() {
+        CurrentWaveRadius = 0;
+
+        if (cylinders == null) {
+            // This method was called before Start. Do nothing.
+            return;
+        }
+
+        numberOfActiveCylinderParts = NumberOfCylinders;
+
+        // Reset all transforms:
+        for (int i = 0; i < NumberOfCylinders; i++) {
+            Transform cylinder = cylinders[i];
+            cylinder.localPosition = Vector3.zero;
+            cylinder.localEulerAngles = new Vector3(90, -i * angleDelta, 0);
+            cylinder.localScale = new Vector3(CylinderDiameter, 0, CylinderDiameter);
+            cylinder.gameObject.SetActive(true);
         }
 	}
 	
-    public void FixedUpdate () {
+    public void FixedUpdate() {
         CurrentWaveRadius += RadiusExpansionRate * Time.fixedDeltaTime;
 
         for (int i = 0; i < NumberOfCylinders; i++) {
@@ -50,7 +76,17 @@ public class WaveController : MonoBehaviour {
             float extraLengthToCloseOuterGap = Mathf.Sin(Mathf.Deg2Rad * angleDelta / 2.0f) * (CylinderDiameter/2.0f);
             cylinder.localScale = new Vector3(CylinderDiameter, CurrentWaveRadius * radiusToLengthFactor + extraLengthToCloseOuterGap, CylinderDiameter);
         }
+    }
 
+    public void OnCylinderLeftPlayfield()
+    {
+        Debug.Log("Child WaveCylinder left playfield.");
+        numberOfActiveCylinderParts--;
+
+        if (numberOfActiveCylinderParts <= 0) {
+            // Fade out the cylinder:
+            gameObject.SetActive(false);
+        }
     }
 
 
