@@ -56,7 +56,7 @@ MonoBehaviour:
   WaveMaterial: {fileID: 2100000, guid: 1253e380b7b954c9a91d2b1c03375b8a, type: 2}
   CylinderDiameter: 3
   NumberOfCylinders: 16
-  RadiusToLengthFactor: 0.2
   RadiusExpansionRate: 3
   CurrentWaveRadius: 0
   angleDelta: 0
+  RadiusToLengthFactor: 0.2

@@ -7,7 +7,6 @@ public class WaveController : MonoBehaviour {
 
     public float CylinderDiameter = 1;
     public int NumberOfCylinders = 16;
-    public float RadiusToLengthFactor = 0.2f;
     public float RadiusExpansionRate = 3;
 
     private Transform[] cylinders; 
@@ -18,11 +17,16 @@ public class WaveController : MonoBehaviour {
     [SerializeField]
     private float angleDelta;
 
+    [SerializeField]
+    private float radiusToLengthFactor;
+
 	public void Start () {
         Assert.IsNotNull(CylinderPrefab, "CylinderTemplate must be initialized");
         cylinders = new Transform[NumberOfCylinders];
 
         angleDelta = 360.0f / NumberOfCylinders;
+
+        radiusToLengthFactor = Mathf.Sin(Mathf.Deg2Rad * angleDelta / 2) / Mathf.Cos(Mathf.Deg2Rad * angleDelta / 2);
 
         // Reset all positions:
         for (int i = 0; i < NumberOfCylinders; i++) {
@@ -42,7 +46,8 @@ public class WaveController : MonoBehaviour {
         for (int i = 0; i < NumberOfCylinders; i++) {
             Transform cylinder = cylinders[i];
             cylinder.localPosition = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angleDelta * i) * CurrentWaveRadius, 0, Mathf.Sin(Mathf.Deg2Rad * angleDelta * i) * CurrentWaveRadius);
-            cylinder.localScale = new Vector3(CylinderDiameter, CurrentWaveRadius * RadiusToLengthFactor + Mathf.Sin(Mathf.Deg2Rad * angleDelta / 2.0f) * (CylinderDiameter/2.0f), CylinderDiameter);
+            float extraLengthToCloseOuterGap = Mathf.Sin(Mathf.Deg2Rad * angleDelta / 2.0f) * (CylinderDiameter/2.0f);
+            cylinder.localScale = new Vector3(CylinderDiameter, CurrentWaveRadius * radiusToLengthFactor + extraLengthToCloseOuterGap, CylinderDiameter);
         }
 
     }
