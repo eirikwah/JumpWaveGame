@@ -7,6 +7,8 @@ using DG.Tweening;
 public class CanvasController : MonoBehaviour {
 	public float FullCountdownDuration;
 
+	public float AnimationStartDelay = 0.0f;
+
 	private Sequence animationSequence;
 
 	void Start() {
@@ -15,9 +17,9 @@ public class CanvasController : MonoBehaviour {
 
 		float duration = FullCountdownDuration / transform.childCount;
 
-		// Create the animation sequence and an initial pause.
+		// NOTE (Emil): Create the animation sequence and an initial pause.
 		animationSequence = DOTween.Sequence();
-		animationSequence.AppendInterval(0.5f);
+		animationSequence.AppendInterval(AnimationStartDelay);
 
 		foreach (Transform transform in transform) {
 			CanvasRenderer renderer = transform.GetComponent<CanvasRenderer>();
@@ -26,7 +28,6 @@ public class CanvasController : MonoBehaviour {
 			animationSequence.Append(transform.DOScale(new Vector3(2, 2, 1), duration - 0.1f));
 			animationSequence.Append(DOTween.ToAlpha(renderer.GetColor, renderer.SetColor, 0.0f, duration));
 		}
-
 
 		animationSequence.OnComplete(() => {
 			animationSequence.Rewind();
@@ -48,6 +49,7 @@ public class CanvasController : MonoBehaviour {
 	private void StartCountdown() {
 		SetChildrenAsInvisible();
 
+		animationSequence.Rewind();
 		animationSequence.Restart();
 	}
 }
