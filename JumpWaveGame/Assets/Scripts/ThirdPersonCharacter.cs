@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void Start()
 		{
 			ChangeMaterialInChild(transform);
-
+			attackCollider.SetActive(false);
 			gameObject.name = LayerMask.LayerToName(gameObject.layer);
 			animator = GetComponent<Animator>();
 			rigidbody = GetComponent<Rigidbody>();
