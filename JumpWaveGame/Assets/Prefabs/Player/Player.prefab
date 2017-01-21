@@ -591,6 +591,7 @@ GameObject:
   - component: {fileID: 114496916702679084}
   - component: {fileID: 114497814303010480}
   - component: {fileID: 75387946465138752}
+  - component: {fileID: 114613794547280606}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -4099,6 +4100,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thirdPersonCharacter: {fileID: 0}
+--- !u!114 &114613794547280606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1378341305646734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a575b7362b544a79b0819632d443f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KickHitSound: event:/KickHit
+  WaveHitSound: event:/Hit
 --- !u!114 &114694287421034420
 MonoBehaviour:
   m_ObjectHideFlags: 1
