@@ -99,8 +99,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4957782389053768}
   - component: {fileID: 65296366858772962}
+  - component: {fileID: 114694287421034420}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +591,7 @@ GameObject:
   - component: {fileID: 114496916702679084}
   - component: {fileID: 114497814303010480}
   - component: {fileID: 75387946465138752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1559,7 +1560,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378341305646734}
   m_LocalRotation: {x: -0, y: -0.00000013411044, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.54, z: 0}
+  m_LocalPosition: {x: -17.77, y: 2.54, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4815603994094696}
@@ -4025,11 +4026,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 0.1
-  jumpPower: 4
-  attackForce: 200
-  stompForce: 40
+  runSpeed: 2
+  jumpPower: 6
+  attackForce: 400
+  stompForce: 10
   groundCheckDistance: 0.2
+  attackCollider: {fileID: 0}
 --- !u!114 &114497814303010480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4042,13 +4044,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thirdPersonCharacter: {fileID: 0}
+--- !u!114 &114694287421034420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057926973107634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d651e48ef9b9e146b07c71206b35023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushbackLengthForce: 5
+  pushbackHeightForce: 3
 --- !u!136 &136809648138695098
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378341305646734}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ef4938a9415ca674aa040a1ddae654b1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.45
