@@ -291,6 +291,7 @@ ModelImporter:
     7400012: Jump_land
     7400014: Hurt
     7400016: Attack
+    7400018: DoubleJump
     9500000: //RootNode
     13700000: LOWER_LID
     13700002: UPPER_LID
@@ -2000,6 +2001,216 @@ ModelImporter:
       takeName: STICKMAN_ANIMATION_MASTER_FILE_v023
       firstFrame: 365
       lastFrame: 372
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: left
+        weight: 1
+      - path: STICKMAN_ALL
+        weight: 1
+      - path: STICKMAN_ALL/Root
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/Left_Finger
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/Left_Finger/Left_FingerEnd
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/Left_Index
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/Left_Index/Left_IndexEnd
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/Left_Thumb
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/Left_Thumb/Left_ThumbEnd
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Left_Arm/Left_Elbow/Left_Hand/locator_hand_left
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/locator_back
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/locator_chest_left
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/locator_chest_right
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/locator_wing_left
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/locator_wing_right
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/HIGHLIGHT_DIRECTION
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/HIGHLIGHT_DIRECTION/HIGHLIGHT_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/HIGHLIGHT_DIRECTION/HIGHLIGHT_SCALE_ONLY/HIGHLIGHT
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/IRIS_DIRECTION
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/IRIS_DIRECTION/IRIS_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/IRIS_DIRECTION/IRIS_SCALE_ONLY/IRIS
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/PUPIL_DIRECTION
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/PUPIL_DIRECTION/PUPIL_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/CENTER_EYE_DIRECTION_ALL/PUPIL_DIRECTION/PUPIL_SCALE_ONLY/PUPIL
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_CENTER_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_CENTER_DEF/LOWER_LID_CENTER_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_L_MID_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_L_MID_DEF/LOWER_LID_L_MID_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_L_OUTER_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_L_OUTER_DEF/LOWER_LID_L_OUTER_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_R_MID_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_R_MID_DEF/LOWER_LID_R_MID_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_R_OUTER_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/LOWER_LID_ROT/LOWER_LID_R_OUTER_DEF/LOWER_LID_R_OUTER_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/SCLERA
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_CENTER_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_CENTER_DEF/UPPER_LID_CENTER_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_L_MID_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_L_MID_DEF/UPPER_LID_L_MID_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_L_OUTER_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_L_OUTER_DEF/UPPER_LID_L_OUTER_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_R_MID_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_R_MID_DEF/UPPER_LID_R_MID_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_R_OUTER_DEF
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_GRP_ALL/EYE_MASTER_JOINT/UPPER_LID_ROT/UPPER_LID_R_OUTER_DEF/UPPER_LID_R_OUTER_DEF_SCALE_ONLY
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/HEAD_ALL_OFFSET/HEAD_ALL/EYE_OFFSET/EYE_TRANSFORM/EYE_COG/EYE_SCALE
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/LOWER_LID
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/EYE_ALL_GRP/UPPER_LID
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/locator_hat
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/locator_mouth_nose
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Neck/Head/STICKMAN_HUD_CAM_01
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/locator_hand_right
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/Right_Finger
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/Right_Finger/Right_FingerEnd
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/Right_Index
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/Right_Index/Right_IndexEnd
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/Right_Thumb
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Chest/Right_Arm/Right_Elbow/Right_Hand/Right_Thumb/Right_ThumbEnd
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Left_Leg
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Left_Leg/Left_Boot
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Left_Leg/Left_Knee
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Left_Leg/Left_Knee/Left_Foot
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/locator_hip_left
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/locator_hip_right
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Right_Leg
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Right_Leg/Right_Boot
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Right_Leg/Right_Knee
+        weight: 1
+      - path: STICKMAN_ALL/Root/Torso/Right_Leg/Right_Knee/Right_Foot
+        weight: 1
+      - path: STICKMAN_ALL/Trajectory
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: DoubleJump
+      takeName: STICKMAN_ANIMATION_MASTER_FILE_v023
+      firstFrame: 244
+      lastFrame: 267
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

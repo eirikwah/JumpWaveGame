@@ -14,8 +14,8 @@ public class AttackCollider : MonoBehaviour
 		var rb = col.gameObject.GetComponent <Rigidbody>();
 		if(rb != null)
 		{
-
-			rb.AddForce(-(transform.position - new Vector3(col.gameObject.transform.position.x, pushbackHeightForce, col.gameObject.transform.position.z)) * pushbackHeightForce, ForceMode.Impulse);
+			rb.velocity = Vector3.zero;
+			rb.AddForce(-(transform.position - new Vector3(col.gameObject.transform.position.x, pushbackHeightForce, col.gameObject.transform.position.z)) * pushbackLengthForce, ForceMode.Impulse);
 			Debug.Log("Attacking object " + rb.gameObject.name);
 		}
 	}

@@ -32,8 +32,8 @@ TagManager:
   - Wave7
   - Wave8
   - Playfield
-  - 
-  - 
+  - AttackCollider
+  - BodyCollider
   - 
   - 
   - 

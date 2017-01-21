@@ -8,6 +8,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 	[RequireComponent(typeof(Animator))]
 	public class ThirdPersonCharacter : MonoBehaviour
 	{
+		public bool gameOver;
+
 		[SerializeField] 
 		private float runSpeed = 1;
 
@@ -38,6 +40,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		private bool stompAttack;
 		private bool stompQueued;
+		private bool hasDoubleJumped;
 
 		void Start()
 		{
@@ -68,10 +71,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 						{
 							if(playerMaterials[i].name == gameObject.name)
 							{
-									
-
-								Debug.Log(mesh.materials.Length);
-//								mesh.sharedMaterial = playerMaterials[i];
 								mesh.materials[0].color = playerMaterials[i].color;
 								if(mesh.materials.Length == 2)
 								mesh.materials[1].color = playerMaterials[i].color;
@@ -99,21 +98,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-
-		private void Update()
-		{
-			if(stompAttack)
-			{
-				
-			}
-		}
-
 		public void ReceiveInput(Vector3 move, bool attack, bool jump)
 		{
-			if(Input.GetKeyDown(KeyCode.P))
-			{
-				GetComponent<Rigidbody>().AddForce(new Vector3(0, 8, 3), ForceMode.Impulse);
-			}
 			if (move.magnitude > 1f) move.Normalize();
 			move = transform.InverseTransformDirection(move);
 
@@ -125,11 +111,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			Rotate(move);
 			Vector3 v = rigidbody.velocity;
-			// control and velocity handling is different when grounded and airborne:
-			if (isGrounded)
+
+			JumpAction(jump);
+
+			UpdateAnimator(move);
+
+			if(gameOver)
 			{
-				HandleGroundedMovement(jump);
-				
+				return;
+			}
+
+			if(isGrounded)
+			{
 				if(forwardAmount > 0.1f)
 				{
 					if(rigidbody.velocity.magnitude < 7)
@@ -144,11 +137,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 			else
 			{
-				HandleAirborneMovement();
 			}
 
 			// send input and other state parameters to the animator
-			UpdateAnimator(move);
 
 			AttackAction(attack);
 		}
@@ -165,24 +156,23 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
-
-		void HandleAirborneMovement()
-		{
-			// apply extra gravity from multiplier:
-//			groundCheckDistance = rigidbody.velocity.y < 0 ? m_OrigGroundCheckDistance : 0.01f;
-		}
-
-
-		void HandleGroundedMovement(bool jump)
+		void JumpAction(bool jump)
 		{
 			// check whether conditions are right to allow a jump:
-			if (jump && animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+			if(jump && isGrounded)
 			{
 				// jump!
-//				rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpPower, rigidbody.velocity.z);
+				//				rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpPower, rigidbody.velocity.z);
 				rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
 				isGrounded = false;
-//				groundCheckDistance = 0.1f;
+				//				groundCheckDistance = 0.1f;
+			}
+			else if(jump && !isGrounded && !hasDoubleJumped && !gameOver)
+			{
+				animator.SetTrigger("DoubleJump");
+				rigidbody.velocity = Vector3.zero;
+				rigidbody.AddRelativeForce(Vector3.up * jumpPower + Vector3.forward * (jumpPower * forwardAmount), ForceMode.VelocityChange);
+				hasDoubleJumped = true;
 			}
 		}
 
@@ -254,6 +244,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 					}
 				}
 
+				hasDoubleJumped = false;
 				isGrounded = true;
 			}
 			else
