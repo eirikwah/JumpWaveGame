@@ -23,9 +23,10 @@ MonoBehaviour:
   - {fileID: 114570041493262614}
   - {fileID: 114407612162571054}
   - {fileID: 114961609033755704}
+  - {fileID: 114530728635412922}
   MasterBankRef: {fileID: 114546169951120504}
   StringsBankRef: {fileID: 114401523386551118}
-  stringsBankWriteTime: 636206344440000000
+  stringsBankWriteTime: 636206379790000000
   cacheVersion: 2
 --- !u!114 &114001792475281932
 MonoBehaviour:
@@ -242,11 +243,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/efw/git/JumpWaveGame/fmod sound effects/GGJWaveJumping/Build/Desktop/Master
     Bank.strings.bank
-  lastModified: 636206344440000000
+  lastModified: 636206379790000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 974
+    Value: 1012
   Exists: 1
 --- !u!114 &114407612162571054
 MonoBehaviour:
@@ -311,6 +312,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114530728635412922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/musikk
+  guid: 307018bb64c0ae44be538d83511b520e
+  Banks:
+  - {fileID: 114546169951120504}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
 --- !u!114 &114546169951120504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,11 +346,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/efw/git/JumpWaveGame/fmod sound effects/GGJWaveJumping/Build/Desktop/Master
     Bank.bank
-  lastModified: 636206344440000000
+  lastModified: 636206379840000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1353632
+    Value: 2261760
   Exists: 1
 --- !u!114 &114570041493262614
 MonoBehaviour:
