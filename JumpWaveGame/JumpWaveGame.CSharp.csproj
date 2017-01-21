@@ -81,6 +81,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AttackCollider.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\ObjectRandomMoveTest.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonCharacter.cs" />

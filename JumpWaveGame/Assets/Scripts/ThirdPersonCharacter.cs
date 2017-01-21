@@ -16,6 +16,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 //		[SerializeField] float m_AnimSpeedMultiplier = 1f;
 		[SerializeField] private float groundCheckDistance = 0.1f;
+		[SerializeField] private GameObject attackCollider;
 
 		private Rigidbody rigidbody;
 		private ConstantForce constantForce;
@@ -130,19 +131,21 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				{
 					rigidbody.AddRelativeForce(Vector3.forward * attackForce, ForceMode.Acceleration);
 					animator.SetTrigger("Attack");
+					attackCollider.SetActive(true);
+					Invoke("StopAttack", 0.2f);
 				}
 				else
 				{
-
-//					if(transform.position.y > 2)
-//					{
-						stompAttack = true;
-						rigidbody.velocity = Vector3.zero;
-						rigidbody.AddForce(Vector3.down * stompForce, ForceMode.Impulse);
-//					}
-					
+					stompAttack = true;
+					rigidbody.velocity = Vector3.zero;
+					rigidbody.AddForce(Vector3.down * stompForce, ForceMode.Impulse);
 				}
 			}
+		}
+
+		private void StopAttack()
+		{
+			attackCollider.SetActive(false);
 		}
 
 		private void Rotate(Vector3 input)

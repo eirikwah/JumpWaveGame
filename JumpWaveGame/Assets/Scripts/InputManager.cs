@@ -8,31 +8,34 @@ public class InputManager : MonoBehaviour
 	[SerializeField]
 	private ThirdPersonCharacter thirdPersonCharacter;
 
+	private string layerName;
 	private bool jumpBool;
 	private bool attackBool;
 	// Use this for initialization
 	private void Start ()
 	{
 		thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
+		Debug.Log("Layer name is " + LayerMask.LayerToName(gameObject.layer));
+		layerName = LayerMask.LayerToName(gameObject.layer);
 	}
 
 	private void Update()
 	{
 		if(!jumpBool)
 		{
-			jumpBool = Input.GetButtonDown("Jump");
+			jumpBool = Input.GetButtonDown(layerName + "Jump");
 		}
 
 		if(!attackBool)
 		{
-			attackBool = Input.GetButtonDown("Fire1");
+			attackBool = Input.GetButtonDown(layerName + "Fire1");
 		}
 	}
 
 	// Update is called once per frame
 	private void FixedUpdate () {
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
+		float h = Input.GetAxis(layerName + "Horizontal");
+		float v = Input.GetAxis(layerName + "Vertical");
 
 		Vector3 moveVector = v* Vector3.forward + h * Vector3.right;
 
