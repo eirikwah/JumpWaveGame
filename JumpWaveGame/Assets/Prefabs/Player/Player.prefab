@@ -4031,7 +4031,7 @@ MonoBehaviour:
   attackForce: 400
   stompForce: 10
   groundCheckDistance: 0.2
-  attackCollider: {fileID: 0}
+  attackCollider: {fileID: 1057926973107634}
 --- !u!114 &114497814303010480
 MonoBehaviour:
   m_ObjectHideFlags: 1
