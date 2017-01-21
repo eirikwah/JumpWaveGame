@@ -50,6 +50,7 @@
      <Compile Include="Assets\Assets\Scripts\ObjectRandomMoveTest.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
+     <Compile Include="Assets\Scripts\CanvasController.cs" />
      <Compile Include="Assets\Scripts\WaveController.cs" />
      <Compile Include="Assets\Scripts\WaveCylinderController.cs" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
