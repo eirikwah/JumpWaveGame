@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: /Users/efw/git/JumpWaveGame/fmod sound effects/GGJWaveJumping/GGLWaveJumping.fspro
-  SourceBankPath: /Users/efw/git/JumpWaveGame/fmod sound effects/GGJWaveJumping/Build
+  SourceProjectPath: ../fmod sound effects/GGJWaveJumping/GGLWaveJumping.fspro
+  SourceBankPath: ../fmod sound effects/GGJWaveJumping/Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
