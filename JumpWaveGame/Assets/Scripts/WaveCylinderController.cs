@@ -7,8 +7,8 @@ public class WaveCylinderController : MonoBehaviour {
     private WaveController parentWaveController;
 	private string waveNumberAsString;
 	
-	private float xzStrength = 1f;
-	private float yStrength = 5f;
+	private float xzStrength = 2f;
+	private float yStrength = 27f;
 
 	private List<GameObject> playerHit = new List<GameObject>();
 

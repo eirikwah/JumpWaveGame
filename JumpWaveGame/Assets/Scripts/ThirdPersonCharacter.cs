@@ -44,6 +44,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		private bool hasJumped;
 		private bool hasDoubleJumped;
 
+		private float randomIdleFloat = 1;
+
 		[FMODUnity.EventRef]
 		public string KickSound = "event:/KickMiss";
 
@@ -62,6 +64,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			rigidbody = GetComponent<Rigidbody>();
 			constantForce = GetComponent<ConstantForce>();
 			rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+			InvokeRepeating("AnimationCycleLoop", 1, 0.5f);
 		}
 
 		private void ChangeMaterialInChild(Transform t)
@@ -184,7 +187,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				animator.SetTrigger("DoubleJump");
 				rigidbody.velocity = Vector3.zero;
-				rigidbody.AddRelativeForce(Vector3.up * jumpPower + Vector3.forward * (jumpPower * forwardAmount), ForceMode.VelocityChange);
+				rigidbody.AddRelativeForce(Vector3.up * (jumpPower / 1.1f) + Vector3.forward * (jumpPower * (forwardAmount / 2 )), ForceMode.VelocityChange);
 				hasDoubleJumped = true;
 
 				RuntimeManager.PlayOneShot(JumpSound, Vector3.zero);
@@ -238,6 +241,26 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
+		public void StartWinningAnimation()
+		{
+			animator.SetTrigger("Cheer");
+		}
+
+		private void AnimationCycleLoop()
+		{
+			if(!animator.isInitialized)
+				return;
+//				Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+//			if(animator.GetCurrentAnimatorStateInfo(0).IsName("Idle" + randomIdleFloat) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+//			{
+//				Debug.Log("dddddd");
+//				randomIdleFloat = Random.Range(1, 11);
+//                animator.SetFloat("IdleFloat", randomIdleFloat);
+//			}
+
+				animator.SetInteger("DanceNumber", Random.Range(1, 5));
+			
+		}
 
 		void CheckGroundStatus()
 		{
