@@ -47,7 +47,7 @@ public class PlayerHitSoundPlayer : MonoBehaviour {
     }
 
     private void TriggerHitAnimation() {
-        gameObject.GetComponent<Animator>().SetTrigger("Hit" + Random.Range(1, 3));
+        gameObject.GetComponent<Animator>().SetTrigger("Hurt" + Random.Range(1, 3));
     }
 
 }

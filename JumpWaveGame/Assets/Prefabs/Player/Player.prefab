@@ -4073,7 +4073,7 @@ MonoBehaviour:
   runSpeed: 4
   jumpPower: 10
   attackForce: 400
-  stompForce: 20
+  stompForce: 21
   groundCheckDistance: 0.2
   attackCollider: {fileID: 1057926973107634}
   playerMaterials:
