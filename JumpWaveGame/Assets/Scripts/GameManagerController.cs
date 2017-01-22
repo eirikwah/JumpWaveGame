@@ -70,6 +70,10 @@ public class GameManagerController : MonoBehaviour {
 		if (doSlowRotate && lastStandingPlayer) {
 			GameCamera.transform.RotateAround(lastStandingPlayer.position, Vector3.up, -Time.deltaTime * idleCameraRotationSpeed);
 		}
+
+		if (Input.GetKeyDown(KeyCode.F12)) {
+			SceneManager.LoadScene("StartScene");
+		}
 	}
 
 	public void RegisterPlayer(int playerIndex) {

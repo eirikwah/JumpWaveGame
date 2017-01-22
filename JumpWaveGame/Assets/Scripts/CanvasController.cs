@@ -14,6 +14,8 @@ public class CanvasController : MonoBehaviour {
 
 	private Transform players;
 
+	public Vector3 ScaleFactor = new Vector3(10, 10, 1);
+
 	void Start() {
 		Debug.Assert(transform.childCount > 0, "Missing CountdownItems for the Canvas");
 		Debug.Assert(FullCountdownDuration > 0.0f, "The Countdown duration must be larger than zero.");
@@ -34,7 +36,7 @@ public class CanvasController : MonoBehaviour {
 			renderer.SetAlpha(0.0f);
 
 			animationSequence.Append(DOTween.ToAlpha(renderer.GetColor, renderer.SetColor, 1.0f, 0.1f));
-			animationSequence.Append(transform.DOScale(new Vector3(2, 2, 1), duration - 0.1f));
+			animationSequence.Append(transform.DOScale(ScaleFactor, duration - 0.1f));
 			animationSequence.Append(DOTween.ToAlpha(renderer.GetColor, renderer.SetColor, 0.0f, duration));
 		}
 
