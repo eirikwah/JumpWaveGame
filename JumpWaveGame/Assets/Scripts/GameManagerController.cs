@@ -161,6 +161,8 @@ public class GameManagerController : MonoBehaviour {
 		PlayerSelectCamera.enabled = false;
 		GameCamera.enabled = true;
 
+		CountdownCanvas.gameObject.SetActive(true);
+
 		//lastStandingPlayer = TryFindingLastStandingPlayerPosition();
 		//DoSlowZoom(lastStandingPlayer);
 	}
