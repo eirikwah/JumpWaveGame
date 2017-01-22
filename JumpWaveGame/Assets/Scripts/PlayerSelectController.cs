@@ -61,7 +61,7 @@ public class PlayerSelectController : MonoBehaviour {
 				Debug.Log("Is Button7 start?");
 			}
 
-			if (Input.GetKey(KeyCode.JoystickButton7) && activePlayerCount > 0) {
+			if (Input.GetKeyDown("space") || Input.GetKey(KeyCode.JoystickButton7) && activePlayerCount > 0) {
 				Debug.Log("Pressed space and more than zero active players");
 
 				gameManager.StartGame();

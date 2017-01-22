@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using FMODUnity;
+using System.Collections;
 
 public class DeathDetector : MonoBehaviour {
     [FMODUnity.EventRef]
@@ -25,12 +26,23 @@ public class DeathDetector : MonoBehaviour {
             // If this really is a player:
             RuntimeManager.PlayOneShot(DeathByFallingSound, Vector3.zero);
 
-            player.SetActive(false);
+            StartCoroutine(Kill(player));
         }
         else
         {
             Debug.Log("Ignoring non-player falling outside the life cube: " + player.name);
         }
+    }
 
+    private IEnumerator Kill(GameObject player) {
+        player.GetComponent<Animator>().SetTrigger("Death");
+        yield return new WaitForSeconds(2);
+        player.SetActive(false);
+
+        GameManagerController gameManagerController = FindObjectOfType<GameManagerController>();
+        // Check for null, in case we are testing:
+        if (gameManagerController != null) {
+            gameManagerController.ReportDeath(player);
+        }
     }
 }

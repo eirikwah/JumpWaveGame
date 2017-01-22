@@ -6,4 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WaveTest.unity
+    path: Assets/Scenes/StartScene.unity
+  - enabled: 1
+    path: Assets/Scenes/ArtTest.unity
+  - enabled: 1
+    path: Assets/Scenes/GameElementsScene.unity

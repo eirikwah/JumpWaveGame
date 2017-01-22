@@ -15,10 +15,13 @@ public class PlayerHitSoundPlayer : MonoBehaviour {
         if (collision.gameObject.name.Equals("AttackCollider"))
         {
             RuntimeManager.PlayOneShot(KickHitSound, Vector3.zero);
+            TriggerHitAnimation();
+
         }
         else if (collision.gameObject.name.StartsWith("Wave"))
         {
             RuntimeManager.PlayOneShot(WaveHitSound, Vector3.zero);
+            TriggerHitAnimation();
         }
         else
         {
@@ -30,15 +33,21 @@ public class PlayerHitSoundPlayer : MonoBehaviour {
         if (collider.gameObject.name.Equals("AttackCollider"))
         {
             RuntimeManager.PlayOneShot(KickHitSound, Vector3.zero);
+            TriggerHitAnimation();
         }
         else if (collider.gameObject.name.StartsWith("Wave"))
         {
             RuntimeManager.PlayOneShot(WaveHitSound, Vector3.zero);
+            TriggerHitAnimation();
         }
         else
         {
             Debug.Log("No sound for hitting trigger " + collider.gameObject.name);
         }
+    }
+
+    private void TriggerHitAnimation() {
+        gameObject.GetComponent<Animator>().SetTrigger("Hit" + Random.Range(1, 3));
     }
 
 }
