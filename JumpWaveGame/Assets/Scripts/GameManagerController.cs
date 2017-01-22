@@ -40,6 +40,7 @@ public class GameManagerController : MonoBehaviour {
 		SetupCameras();
 	
 		SceneManager.LoadScene("ArtTest", LoadSceneMode.Additive);
+		SceneManager.LoadScene("GameElementsScene", LoadSceneMode.Additive);
 	}
 
 	void Update () {
@@ -90,5 +91,18 @@ public class GameManagerController : MonoBehaviour {
 	public void StartGame() {
 		PlayerSelectCamera.enabled = false;
 		GameCamera.enabled = true;
+	}
+
+	private Transform TryFindingLastStandingPlayerPosition() {
+		foreach (var player in players) {
+			if (player.gameObject.activeSelf) {
+				return player.transform;
+			}
+		}
+
+		return null;
+	}
+
+	private void EndGame() {
 	}
 }
