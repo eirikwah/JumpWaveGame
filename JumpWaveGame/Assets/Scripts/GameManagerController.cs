@@ -11,7 +11,6 @@ public class GameManagerController : MonoBehaviour {
 	public Canvas CountdownCanvas;
 	public Canvas VictoryCanvas;
 	public Canvas CreditsCanvas;
-	public Canvas SignupCanvas;
 
 	public Camera GameCamera;
 	public Camera IdleCamera;
@@ -26,6 +25,8 @@ public class GameManagerController : MonoBehaviour {
 	public Material[] playerMaterials;
 
 	public GameObject[] players;
+
+	public GameObject PlayerSelect;
 
 	void Start () {
 		Debug.Assert(CountdownCanvas, "GameManager needs a reference to the CountdownCanvas");
@@ -71,7 +72,7 @@ public class GameManagerController : MonoBehaviour {
 		
 		startScreenFadeOutTween = canvasGroup.DOFade(0.0f, 1.0f);
 		startScreenFadeOutTween.Pause();
-		startScreenFadeOutTween.OnComplete(StartGame);
+		startScreenFadeOutTween.OnComplete(MoveToGameLobby);
 	}
 
 	private void FadeOutStartScreen() {
@@ -82,8 +83,7 @@ public class GameManagerController : MonoBehaviour {
 		gameStarted = true;
 	}
 
-	private void MoveToSignupMenu() {
-		SignupCanvas.gameObject.SetActive(true);
+	private void MoveToGameLobby() {
 		StartScreenCanvas.gameObject.SetActive(false);
 	}
 

@@ -1,18 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using DG.Tweening;
 
 public class PlayerSelectController : MonoBehaviour {
+	public float playerSelectionDelay = 2.0f;
+
+	public GameObject[] PlayerSelectModels;
 
 	private GameManagerController gameManager;
 
 	private bool[] activePlayers;
 
-	public GameObject[] PlayerSelectModels;
-
 	private int playerCount = 8;
 
 	private int activePlayerCount = 0;
+
+	
 	// Use this for initialization
 	void Start () {
 		activePlayers = new bool[playerCount];
@@ -40,16 +42,31 @@ public class PlayerSelectController : MonoBehaviour {
 		CheckPlayerInputForRegistration();
 	}
 	private void CheckPlayerInputForRegistration() {
-		for (int playerIndex = 0; playerIndex < playerCount; playerIndex++) {
-			if (Input.GetButtonDown("Player" + (playerIndex + 1).ToString() + "Jump") && !activePlayers[playerIndex]) {
-				gameManager.RegisterPlayer(playerIndex);
-				PlayerSelectModels[playerIndex].SetActive(true);
-			}
+		if (playerSelectionDelay > 0.0f) {
+			playerSelectionDelay -= Time.deltaTime;
 		}
+		else
+		{
+			for (int playerIndex = 0; playerIndex < playerCount; playerIndex++) {
+				if (Input.GetButtonDown("Player" + (playerIndex + 1).ToString() + "Jump") && !activePlayers[playerIndex]) {
+					gameManager.RegisterPlayer(playerIndex);
+					PlayerSelectModels[playerIndex].SetActive(true);
+					// NOTE (Emil): We use the activePlayerCount for the starting logic below.
+					activePlayerCount += 1;
+				}
+			}
 
-		if (Input.GetKey("space") && activePlayerCount > 0) {
-			gameManager.StartGame();
-			gameObject.SetActive(false);
+			// TODO (Emil): Make this another button?
+			if (Input.GetKey(KeyCode.JoystickButton7)) {
+				Debug.Log("Is Button7 start?");
+			}
+
+			if (Input.GetKey(KeyCode.JoystickButton7) && activePlayerCount > 0) {
+				Debug.Log("Pressed space and more than zero active players");
+
+				gameManager.StartGame();
+				gameObject.SetActive(false);
+			}
 		}
 	}
 }
