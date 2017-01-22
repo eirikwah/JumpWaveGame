@@ -38,6 +38,4 @@ public class StartScreenController : MonoBehaviour {
 		fadeInClickToPlay.Rewind();
 		fadeInClickToPlay.Restart();
 	}
-
-	
 }
