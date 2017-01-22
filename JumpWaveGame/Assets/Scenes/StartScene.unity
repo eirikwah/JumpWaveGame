@@ -1835,7 +1835,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -2289,7 +2289,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -3376,7 +3376,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -3863,7 +3863,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -3938,7 +3938,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -4821,7 +4821,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -5267,7 +5267,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -6439,7 +6439,7 @@ Prefab:
     - target: {fileID: 114497814303010480, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114496916702679084, guid: 7ec3be895a4e05b439a3534028f10eb5,
         type: 2}
@@ -6662,6 +6662,9 @@ MonoBehaviour:
   - {fileID: 995207885}
   - {fileID: 172818669}
   PlayerSelect: {fileID: 955747294}
+  slowZoomSpeed: 1
+  minimumPlayerDistance: 4
+  minimumCameraXRotation: 15
 --- !u!4 &1929581223
 Transform:
   m_ObjectHideFlags: 0
