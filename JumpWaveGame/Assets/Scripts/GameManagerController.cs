@@ -161,8 +161,8 @@ public class GameManagerController : MonoBehaviour {
 		PlayerSelectCamera.enabled = false;
 		GameCamera.enabled = true;
 
-		lastStandingPlayer = TryFindingLastStandingPlayerPosition();
-		DoSlowZoom(lastStandingPlayer);
+		//lastStandingPlayer = TryFindingLastStandingPlayerPosition();
+		//DoSlowZoom(lastStandingPlayer);
 	}
 
 	private Transform TryFindingLastStandingPlayerPosition() {
