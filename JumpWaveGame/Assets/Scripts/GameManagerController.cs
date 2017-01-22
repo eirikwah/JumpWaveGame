@@ -70,18 +70,6 @@ public class GameManagerController : MonoBehaviour {
 		if (doSlowRotate && lastStandingPlayer) {
 			GameCamera.transform.RotateAround(lastStandingPlayer.position, Vector3.up, -Time.deltaTime * idleCameraRotationSpeed);
 		}
-
-		// if (doSlowZoom && lastStandingPlayer) {
-		// 	Vector3 currentOffset = lastStandingPlayer.position - transform.position;
-
-		// 	if (currentOffset.magnitude > minimumPlayerDistance) {
-		// 		transform.position += Time.deltaTime * slowZoomSpeed * currentOffset;
-		// 	}
-
-		// 	if (transform.rotation.x > minimumCameraXRotation) {
-		// 		transform.RotateAround(lastStandingPlayer.position, new Vector3(1, 0, 0), Time.deltaTime * slowZoomSpeed);
-		// 	}
-		// }
 	}
 
 	public void RegisterPlayer(int playerIndex) {
@@ -119,7 +107,7 @@ public class GameManagerController : MonoBehaviour {
 		var animator = player.GetComponent<Animator>();
 		animator.SetTrigger("Cheer");
 
-		player.transform.LookAt(newCameraPosition, Vector3.up);
+		player.transform.LookAt(new Vector3(newCameraPosition.x, 0, newCameraPosition.z), Vector3.up);
 		GameCamera.transform.DOMove(newCameraPosition, zoomDuration);
 		GameCamera.transform.DORotate(new Vector3(finalXRotation, 0.0f, 0.0f), zoomDuration).OnComplete(StartCreditsSequence);
 		doSlowRotate = true;
@@ -153,6 +141,10 @@ public class GameManagerController : MonoBehaviour {
 		startScreenFadeOutTween.OnComplete(MoveToGameLobby);
 	}
 
+	private void GoToIdleCamera() {
+		GameCamera.enabled = false;
+	}
+
 	private void FadeOutStartScreen() {
 		startScreenFadeOutTween.Rewind();
 		startScreenFadeOutTween.Restart();
@@ -169,8 +161,8 @@ public class GameManagerController : MonoBehaviour {
 		PlayerSelectCamera.enabled = false;
 		GameCamera.enabled = true;
 
-		// lastStandingPlayer = TryFindingLastStandingPlayerPosition();
-		// DoSlowZoom(lastStandingPlayer);
+		lastStandingPlayer = TryFindingLastStandingPlayerPosition();
+		DoSlowZoom(lastStandingPlayer);
 	}
 
 	private Transform TryFindingLastStandingPlayerPosition() {
