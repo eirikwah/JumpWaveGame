@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 using DG.Tweening;
 
@@ -28,6 +29,20 @@ public class GameManagerController : MonoBehaviour {
 
 	public GameObject PlayerSelect;
 
+	private int activePlayerCount;
+
+	private Transform lastStandingPlayer;
+
+	private bool doSlowRotate = true;
+
+	public float slowZoomSpeed = 1.0f;
+
+	public float minimumPlayerDistance = 4.0f;
+
+	public float minimumCameraXRotation = 15.0f;
+
+	private bool canRestartGame = false;
+
 	void Start () {
 		Debug.Assert(CountdownCanvas, "GameManager needs a reference to the CountdownCanvas");
 		Debug.Assert(StartScreenCanvas, "GameManager needs a reference to the StartScreenCanvas");
@@ -51,13 +66,75 @@ public class GameManagerController : MonoBehaviour {
 		if (IdleCamera.enabled) {
 			IdleCamera.transform.RotateAround(Vector3.zero, Vector3.up, Time.deltaTime * idleCameraRotationSpeed);
 		}
+
+		if (doSlowRotate && lastStandingPlayer) {
+			GameCamera.transform.RotateAround(lastStandingPlayer.position, Vector3.up, -Time.deltaTime * idleCameraRotationSpeed);
+		}
+
+		// if (doSlowZoom && lastStandingPlayer) {
+		// 	Vector3 currentOffset = lastStandingPlayer.position - transform.position;
+
+		// 	if (currentOffset.magnitude > minimumPlayerDistance) {
+		// 		transform.position += Time.deltaTime * slowZoomSpeed * currentOffset;
+		// 	}
+
+		// 	if (transform.rotation.x > minimumCameraXRotation) {
+		// 		transform.RotateAround(lastStandingPlayer.position, new Vector3(1, 0, 0), Time.deltaTime * slowZoomSpeed);
+		// 	}
+		// }
 	}
 
 	public void RegisterPlayer(int playerIndex) {
-		players[playerIndex].SetActive(true);
+		if (!players[playerIndex].activeSelf) {
+			players[playerIndex].SetActive(true);
+			activePlayerCount += 1;
+		}
 	}
 
-	public void ReportDeath(GameObject player) {
+	public void ReportDeath(GameObject ignoredPlayerArgument) {
+		activePlayerCount -= 1;
+
+		// TODO (Emil): This probably won't work with a double death. Wait a while before deciding?
+		if (activePlayerCount == 1) {
+			lastStandingPlayer = TryFindingLastStandingPlayerPosition();
+
+			DoSlowZoom(lastStandingPlayer);
+		}
+		else if (activePlayerCount < 1) {
+			GameCamera.enabled = false;
+			IdleCamera.enabled = true;
+		}
+		else {
+			Debug.Log("A player died");	
+		}
+	}
+
+	private void DoSlowZoom(Transform player) {
+		float zoomDuration = 5.0f;
+		float heightOffset = -5.0f;
+		float zOffset = 12.0f;
+		float finalXRotation = 27.0f;
+
+		Vector3 newCameraPosition = player.transform.position - new Vector3(0, heightOffset, zOffset);
+		var animator = player.GetComponent<Animator>();
+		animator.SetTrigger("Cheer");
+
+		player.transform.LookAt(newCameraPosition, Vector3.up);
+		GameCamera.transform.DOMove(newCameraPosition, zoomDuration);
+		GameCamera.transform.DORotate(new Vector3(finalXRotation, 0.0f, 0.0f), zoomDuration).OnComplete(StartCreditsSequence);
+		doSlowRotate = true;
+
+		StartCreditsSequence();
+	}
+
+	private void StartCreditsSequence() {
+		float creditsDelay = 5.0f;
+		float fadeInDuration = 2.0f;
+		var canvasRenderer = CreditsCanvas.GetComponent<CanvasRenderer>();
+
+		Sequence creditsSequence = DOTween.Sequence();
+		creditsSequence.AppendInterval(creditsDelay);
+		creditsSequence.Append(DOTween.ToAlpha(canvasRenderer.GetColor, canvasRenderer.SetColor, 1.0f, fadeInDuration));
 	}
 
 	private void SetupCameras() {
@@ -91,6 +168,9 @@ public class GameManagerController : MonoBehaviour {
 	public void StartGame() {
 		PlayerSelectCamera.enabled = false;
 		GameCamera.enabled = true;
+
+		// lastStandingPlayer = TryFindingLastStandingPlayerPosition();
+		// DoSlowZoom(lastStandingPlayer);
 	}
 
 	private Transform TryFindingLastStandingPlayerPosition() {
