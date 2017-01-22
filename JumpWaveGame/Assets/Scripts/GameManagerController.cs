@@ -11,9 +11,11 @@ public class GameManagerController : MonoBehaviour {
 	public Canvas CountdownCanvas;
 	public Canvas VictoryCanvas;
 	public Canvas CreditsCanvas;
+	public Canvas SignupCanvas;
 
 	public Camera GameCamera;
 	public Camera IdleCamera;
+	public Camera PlayerSelectCamera;
 
 	private bool gameStarted;
 
@@ -58,7 +60,8 @@ public class GameManagerController : MonoBehaviour {
 
 	private void SetupCameras() {
 		GameCamera.enabled = false;
-		IdleCamera.enabled = true;
+		IdleCamera.enabled = false;
+		PlayerSelectCamera.enabled = true;
 	}
 
 	private void SetupStartScreen() {
@@ -79,8 +82,13 @@ public class GameManagerController : MonoBehaviour {
 		gameStarted = true;
 	}
 
-	private void StartGame() {
-		CountdownCanvas.gameObject.SetActive(true);
+	private void MoveToSignupMenu() {
+		SignupCanvas.gameObject.SetActive(true);
 		StartScreenCanvas.gameObject.SetActive(false);
+	}
+
+	public void StartGame() {
+		StartScreenCanvas.gameObject.SetActive(false);
+		SignupCanvas.gameObject.SetActive(false);
 	}
 }
