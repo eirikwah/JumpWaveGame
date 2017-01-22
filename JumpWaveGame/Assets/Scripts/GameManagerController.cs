@@ -88,7 +88,7 @@ public class GameManagerController : MonoBehaviour {
 	}
 
 	public void StartGame() {
-		StartScreenCanvas.gameObject.SetActive(false);
-		SignupCanvas.gameObject.SetActive(false);
+		PlayerSelectCamera.enabled = false;
+		GameCamera.enabled = true;
 	}
 }

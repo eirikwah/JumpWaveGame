@@ -13,7 +13,6 @@ public class StartScreenController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		var renderer = ClickToPlayText.GetComponent<CanvasRenderer>();
-		var textMesh = ClickToPlayText.GetComponent<TextMesh>();
 		Debug.Assert(renderer, "StartScreenController needs a clickToPlayText with a CanvasRenderer.");
 		Debug.Assert(FadeInDuration > 0.0f, "StartScreenController needs a positive FadeInDuration");
 
@@ -33,7 +32,6 @@ public class StartScreenController : MonoBehaviour {
 	}
 
 	void Update() {
-		CheckPlayerInputForRegistration();
 	}
 	
 	private void DoFadeIn() {
@@ -41,37 +39,5 @@ public class StartScreenController : MonoBehaviour {
 		fadeInClickToPlay.Restart();
 	}
 
-	private void CheckPlayerInputForRegistration() {
-		if (Input.GetKey("Player1Jump")) {
-			gameManager.RegisterPlayer(0);
-		}
-
-		if (Input.GetKey("Player2Jump")) {
-			gameManager.RegisterPlayer(1);
-		}
-
-		if (Input.GetKey("Player3Jump")) {
-			gameManager.RegisterPlayer(2);
-		}
-
-		if (Input.GetKey("Player4Jump")) {
-			gameManager.RegisterPlayer(3);
-		}
-
-		if (Input.GetKey("Player5Jump")) {
-			gameManager.RegisterPlayer(4);
-		}
-
-		if (Input.GetKey("Player6Jump")) {
-			gameManager.RegisterPlayer(5);
-		}
-
-		if (Input.GetKey("Player7Jump")) {
-			gameManager.RegisterPlayer(6);
-		}
-
-		if (Input.GetKey("Player8Jump")) {
-			gameManager.RegisterPlayer(7);
-		}
-	}
+	
 }
